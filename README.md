@@ -1,4 +1,4 @@
-# Takeaway Fullstack Challenge
+# 3 Game
 
 1. Server
 
