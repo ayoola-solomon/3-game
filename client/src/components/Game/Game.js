@@ -77,27 +77,16 @@ export const Game = () => {
         <GameStatus status={isWinner ? "won" : "lose"} onClick={onNewGame} />
       ) : null}
       <GameFooter>
-        <RoundValue
-          as="button"
-          disabled={disableOptions}
-          onClick={() => onOptionClick(-1)}
-        >
-          -1
-        </RoundValue>
-        <RoundValue
-          as="button"
-          disabled={disableOptions}
-          onClick={() => onOptionClick(0)}
-        >
-          0
-        </RoundValue>
-        <RoundValue
-          as="button"
-          disabled={disableOptions}
-          onClick={() => onOptionClick(+1)}
-        >
-          +1
-        </RoundValue>
+        {[-1, 0, +1].map((value, index) => (
+          <RoundValue
+            key={index}
+            as="button"
+            disabled={disableOptions}
+            onClick={() => onOptionClick(value)}
+          >
+            {value}
+          </RoundValue>
+        ))}
       </GameFooter>
     </GameWrapper>
   );

@@ -6,6 +6,4 @@ export const LayoutWrapper = styled.div`
 
 export const Main = styled.main`
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
 `;
