@@ -10,8 +10,6 @@ const app = express();
 
 const server = http.createServer(app);
 
-const io = require("socket.io").listen(server);
-
 app.use(cors());
 
 app.set("port", process.env.PORT || 5555);
@@ -28,9 +26,7 @@ app.get("/", (req, res) => {
   res.send({ message: "Welcome Aboard" });
 });
 
-io.on("connection", (socket) => {
-  console.log("a user connected");
-});
+require("./controllers/Game")(server);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -52,6 +48,6 @@ app.use((error, req, res, _) => {
   res.status(response.status).send(response);
 });
 
-app.listen(app.get("port"), () => {
+server.listen(app.get("port"), () => {
   console.log("Listening on port %d", app.get("port"));
 });

@@ -1,0 +1,10 @@
+{
+  "game": {
+    "owner": "1",
+    "value": 90,
+    "name": "Test Name"
+  },
+  "guest": {
+    "id": "2"
+  }
+}
