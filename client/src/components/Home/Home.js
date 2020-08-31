@@ -17,7 +17,7 @@ import {
 
 export const Home = () => {
   const { socket, games, isGameStarted, setIsGameStarted } = useApp();
-  const [startValue, setInputValue] = useState("");
+  const [startValue, setStartValue] = useState("");
   const [name, setName] = useState("");
   const [playWithComputer, setPlayWithComputer] = useState(false);
 
@@ -25,7 +25,7 @@ export const Home = () => {
     event.preventDefault();
     socket.emit(status.NEW_GAME, name, startValue, playWithComputer);
     setIsGameStarted(true);
-    setInputValue("");
+    setStartValue("");
   };
 
   const joinGame = (game) => {
@@ -59,12 +59,14 @@ export const Home = () => {
           </Box>
           <Box my={3}>
             <Box my={2}>
-              <Label htmlFor="startValue">Random Value</Label>
+              <Label htmlFor="startValue">Start Value</Label>
             </Box>
             <Input
               value={startValue}
-              onChange={(e) => setInputValue(e.target.value)}
+              onChange={(e) => setStartValue(e.target.value)}
               type="number"
+              id="startValue"
+              name="startValue"
               placeholder="Insert a random value"
             />
           </Box>
